@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+			<meta charset="UTF-8">
+			<title>XYZ InC - Home</title>
+			<link href="./files/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen">
+			<link rel="stylesheet" type="text/css" href="./home/main.css">
+					<script type="text/javascript">
+                                            function showuser()
+                                            {
+						
+						var str=document.getElementById("fname").value;
+						var xhr;
+						if (str=="")
+                                                  {
+						  
+						  document.getElementById("txtHint").innerHTML="";
+						  return;
+						  } 
+						if (window.XMLHttpRequest)
+						  {
+						  xhr=new XMLHttpRequest();
+						  }
+						else if(window.ActiveXObject)
+						  {
+						  xhr=new ActiveXObject("Microsoft.XMLHTTP");
+						  }
+						  
+						//var data = "first_name" + str;
+						xhr.open("GET","getuser.php?first_name="+str,true);
+						//xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+						xhr.send();
+						xhr.onreadystatechange=display_data;
+						
+						function display_data(){
+							if(xhr.readyState == 4){
+								if(xhr.status == 200) {
+									document.getElementById("txtHint").innerHTML = xhr.responseText;
+									//document.write(xhr.responseText);
+								}
+								else {
+									alert("there was something wrong with your request");
+								}
+							}
+						}
+					}
+                                        function setLabelForQueryChange(selectObject)
+                                        {
+                                            var labelArray = new Array("Select a Proper Option",
+                                                                        "For certain group, list the number of employees in the group", 
+                                                                        "For certain title, list the number of employees whohold it", 
+                                                                        "List the Last Name, Employee_ID, and Rank of the employees whose Rank is exactly 7",
+                                                                        "List the Last Name, Employee_ID, Rank, and Title of the female employees whose Rank is above 6 including 6",
+                                                                        "For a certain street---Campbell Rd., find Employee_ID of all employees living in the street",
+                                                                        "For a certain employee, find the salary he was paidin a certain month",
+                                                                        "List Employee_ID, Phone numbers, and Name of employees who have two or more phone numbers",
+                                                                        "For an employee one of whose phone numbers begins with972 and has Rank 8, list the employee’s Employee_ID, Last Name, and Phone Number",
+                                                                        "Find  all  the  marketing  sites  which  have  at  least  5 employees",
+                                                                        "List  the  information  of  products  in  a  certain  marketing site and list the Name and Employee_ID of the employees belonging to the products",
+                                                                        "List  one  given  employee’s  Employee_ID  and Marketing  Sites  which  he  is  in  charge  of  in  the Marketing & Sales Department",
+                                                                        "For  a  certain employee, find  the  employees who  can update his information in the system" );
+
+                                            var selectedItem = selectObject[selectObject.selectedIndex];
+                                            document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+//                                            alert(labelArray[selectedItem.value])
+                                        }
+					</script>
+	</head>
+	
+	<body style="">
+		<div id="menu">
+			<div class="menuItem"><a href="home.html">Home</a></div>
+			<div class="menuItem"><a href="add.html" class="selected">Add/Register an Employee</a></div>
+		</div>
+
+		<div id="container">
+			<div id="content">
+				<div id="mainContent">
+                                    <center> <h3>VIEW EMPLOYEE DETAILS</h3></center> <br>
+						
+					<form class="well-home span6 form-horizontal" name="ajax-demo" id="ajax-demo">  
+                                            
+<!-- Div for search of Defined Queries -->                                          
+                                            <h4>Defined Queries</h4>
+                                            <div class="control-group">  
+                                                <label class="control-label" for="book">Select Option:</label>  
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <select class="span3" name="queryNo" onchange="setLabelForQueryChange(this)">
+                                                    <option value="0">-------</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                </select>
+                                                <div class="control-group" id="id_displayLabel">
+                                                </div>
+                                                <div class="control-group">  
+                                                    <div class="controls">  
+                                                          <input type="button"  value="Submit" class="btn btn-success" onclick="showuser()" />  
+                                                    </div>  
+                                                </div>                                                
+                                            </div><br>
+                                            
+                                            
+
+                                            
+                                            <h4> Search by First Name</h4>
+<!-- Div for Search By FirstName -->        <div class="control-group">  
+                                                <label class="control-label" for="book">First Name: </label>  
+                                                <div class="controls">  
+                                                    <input type="text" id="fname" onkeyup = "showuser()" >  
+                                                </div>  
+                                            </div>  <br>
+
+<!-- Div for Search by Group starts here -->
+                                           <!-- <h4>Search by Group</h4>
+                                            <div id="skillsSearch">
+                                                <label class="checkbox skillCheck">
+                                                <input type="checkbox" value="1" name="group[]">Manager</label>
+
+                                                <label class="checkbox skillCheck">
+                                                <input type="checkbox" value="2" name="group[]">HR</label>
+
+                                                <label class="checkbox skillCheck">
+                                                <input type="checkbox" value="3" name="group[]">Marketing</label>
+
+                                                <label class="checkbox skillCheck">
+                                                <input type="checkbox" value="4" name="group[]">Finance</label>
+                                                <div class="clear"></div>
+                                            </div> <br> -->
+                                            <div class="control-group">  
+                                                <div class="controls">  
+                                                      <input type="button"  value="Submit" class="btn btn-success" onclick="showuser()" />  
+                                                </div>  
+                                             </div>
+
+                                        </form>
+										<!-- Div for Display starts here -->
+                                            <div  id="txtHint"></div>
+<!-- End of Main Content -->	</div>
+			</div>
+		</div>
+
+		<div id="footer">Copyright © 2013 XYZinC</div>
+
+		<script src="./home/jquery-latest.js"></script>
+		<script src="./home/bootstrap.min.js"></script>
+		<script src="./home/jquery.tablesorter.min.js"></script>
+		<script src="./home/global.js"></script>
+	
+</body></html>

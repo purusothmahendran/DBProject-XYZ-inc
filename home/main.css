@@ -1,0 +1,274 @@
+body
+{
+	background-color: #EDEDED;
+	padding: 0;
+	margin: 0;
+	font-family: helvetica;
+}
+
+#container
+{
+	width: 900px;
+	min-height: 790px;
+	margin: 30px auto 80px auto;
+	padding-top: 10px;
+	overflow: hidden;
+	background-color: #FFF;
+	box-shadow: 1px 2px 3px #DDD;
+}
+
+#mainContent
+{
+	margin-left: 15px;
+	font-size: 13px;
+	padding: 10px;
+	float: left;
+	min-height: 300px;
+	width: 848px;
+	margin-bottom: 10px;
+}
+
+#leftFloat
+{
+	margin-left: 15px;
+	width: 520px;
+	font-size: 13px;
+	margin-top: 10px;
+	padding: 10px;
+	background-color: #FFF;
+	float: left;
+	min-height: 300px;
+	margin-bottom: 10px;
+	color: #252525;
+}
+
+.menuItem
+{
+	font-size: 15px;
+	text-transform: uppercase;
+	display: inline-block;
+	margin-right: 25px;
+	cursor: pointer;
+	position: relative;
+}
+
+.menuItem a
+{
+	color:#DDD;
+	text-decoration: none;
+}
+
+.menuItem a:hover
+{
+	color: #FFF;
+}
+
+.menuItem a.selected
+{
+	color: #FFF;
+}
+
+#menu
+{
+	margin: 0 auto;
+	background-color: black;
+	color: white;
+	height: 30px;
+	line-height: 28px;
+	padding: 10px;
+	position: relative;
+	border-radius: 3px;
+	background-color: #161616;
+	background-image: -moz-linear-gradient(top,#383838,black);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#383838),color-stop(1,black));
+	background-image: -webkit-linear-gradient(#383838,black);
+	background-image: linear-gradient(top,#383838,black);
+	text-align: center;
+}
+
+#menu .menuitem .menuDrop
+{
+	position: absolute;
+	background-color: black;
+	top: 28px;
+	z-index: 19001;
+	width: 120px;
+	left: -10px;
+	color: white;
+	display: none;
+	border: 1px solid #444;
+	border-radius: 0 0 6px 6px;
+}
+
+table
+{
+	cursor: pointer;
+}
+
+#footer
+{
+	text-align: center;
+	color: #DDD;
+	font-size: 12px;
+	background-color: black;
+	height: 30px;
+	padding: 10px;
+	line-height: 30px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+.inputTitle
+{
+	display: block;
+	font-weight: bold;
+	margin-top: 5px;
+	color: #575757;
+}
+
+.rightFloat
+{
+	float:left;
+}
+
+.infoInput
+{
+	float: left;
+	margin-right: 250px;
+}
+
+.infoInput input
+{
+		width: 230px;
+}
+
+#infoText
+{
+	margin-top: 5px;
+}
+
+.form textarea
+{
+	width: 495px;
+}
+
+.leftTitle
+{
+	font-size: 20px;
+	margin-bottom: 10px;
+	color: #575757;
+	display: block;
+}
+
+.controlButton
+{
+	width: 91px;
+	margin-left: 2px;
+	margin-bottom: 2px;
+}
+
+
+.site
+{
+	overflow: hidden;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 20px;
+	border-right: 1px solid #DDD;
+	box-shadow: 1px 2px 3px #DDD;
+}
+
+.site img
+{
+	float: left;
+}
+
+.site .siteInfo
+{
+	float: left;
+	margin-left: 10px;
+}
+
+.site .siteInfo .siteDescription
+{
+	margin-top: 10px;
+	font-size: 14px;
+	width: 620px;
+}
+
+.site .siteTitle
+{
+	width: 623px;
+	background-color: black;
+	padding: 7px;
+	font-size: 25px;
+}
+
+.site:hover .siteTitle
+{
+	background-color: #666;
+}
+
+.site a 
+{
+	color: white;
+	text-decoration: none;
+}
+
+.site a:hover
+{
+	text-decoration: underline;
+}
+
+.clear 
+{
+	clear: both;
+}
+
+#skillsSearch
+{
+	background-color: #F9F9F9;
+	border: 1px solid #DDD;
+	margin-bottom: 5px;
+	padding: 5px 8px;
+}
+
+#skills
+{
+	margin: 10px 0 10px 0;
+}
+
+.skillCheck
+{
+	width: 250px;
+	float: left;
+}
+
+.searchInput
+{
+	height: 30px;
+
+	line-height: 27px!important;
+
+	margin-bottom: 5px;
+}
+
+#notes
+{
+	width: 340px;
+}
+
+#controls
+{
+	background-color: #EEE;
+	display: inline-block;
+	padding: 5px;
+	border: 1px solid #DDD;
+	background-color: #FAFAFA;
+	display: inline-block;
+	padding: 5px;
+	border: 1px solid #DDD;
+	width: 230px;
+	border-radius: 4px;
+}
