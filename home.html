@@ -6,8 +6,54 @@
 			<link href="./files/css/bootstrap.min.css" type="text/css" rel="stylesheet" media="screen">
 			<link rel="stylesheet" type="text/css" href="./home/main.css">
 					<script type="text/javascript">
-                                            function showuser()
-                                            {
+					/*JavaScript Function for query 1*/
+					function getcount()
+					{
+						var groups=document.getElementsByName("group");
+						var str;
+						for(var i = 0; i < groups.length; i++){
+							if(groups[i].checked){
+								str = groups[i].value;
+							}
+						}
+						var xhr;
+						if (str=="")
+                                                  {
+						  
+						  document.getElementById("txtHint").innerHTML="";
+						  return;
+						  } 
+						if (window.XMLHttpRequest)
+						  {
+						  xhr=new XMLHttpRequest();
+						  }
+						else if(window.ActiveXObject)
+						  {
+						  xhr=new ActiveXObject("Microsoft.XMLHTTP");
+						  }
+						  
+						//var data = "first_name" + str;
+						xhr.open("GET","getcount.php?group="+str,true);
+						//xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+						xhr.send();
+						xhr.onreadystatechange=display_data;
+						
+						function display_data(){
+							if(xhr.readyState == 4){
+								if(xhr.status == 200) {
+									document.getElementById("display2").innerHTML = xhr.responseText;
+									//document.write(xhr.responseText);
+								}
+								else {
+									alert("there was something wrong with your request");
+								}
+							}
+						}
+					
+					}
+					/*JavaScript for first name search*/
+                      function showuser()
+                       {
 						
 						var str=document.getElementById("fname").value;
 						var xhr;
@@ -44,6 +90,7 @@
 							}
 						}
 					}
+					/* JavaScript for the select box of defined queries*/
                                         function setLabelForQueryChange(selectObject)
                                         {
                                             var labelArray = new Array("Select a Proper Option",
@@ -61,16 +108,56 @@
                                                                         "For  a  certain employee, find  the  employees who  can update his information in the system" );
 
                                             var selectedItem = selectObject[selectObject.selectedIndex];
-                                            document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
-//                                            alert(labelArray[selectedItem.value])
+											if(selectedItem.value==1)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display').innerHTML="<div id='skillsSearch'>"+
+                                                "<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='manager' name='group' onclick='getcount()'>Manager</label>"+
+												 "<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='hr' name='group' onclick='getcount()'>HR</label>"+
+												 "<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='financier' name='group' onclick='getcount()'>Finance</label>"+
+												 "<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='marketing_group' name='group' onclick='getcount()'>Marketing</label>"+
+
+                                                
+                                                "<div class='clear'></div>"+
+                                           " </div>";
+											}
+
                                         }
 					</script>
 	</head>
 	
 	<body style="">
-		<div id="menu">
+	<div class="row">
+	<center><h1>XYZ Inc</h1>
+	</div>
+		<div id="menu" class="navbar navbar-fixed">
 			<div class="menuItem"><a href="home.html">Home</a></div>
 			<div class="menuItem"><a href="add.html" class="selected">Add/Register an Employee</a></div>
+			<a href="#login" role="button" data-toggle="modal" style="padding-right:0"><span class="btn btn-large btn-success" style="margin-left:1200px; margin-top:-60px">Login</span></a>
+	<div id="login" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="false" >
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3>Login</h3>
+		  </div>
+		  <div class="modal-body">
+			<form class="form-horizontal loginFrm">
+			  <div class="control-group">								
+				<input type="text" id="inputEmail" placeholder="Email">
+			  </div>
+			  <div class="control-group">
+				<input type="password" id="inputPassword" placeholder="Password">
+			  </div>
+			</form>		
+			<button type="submit" class="btn btn-success">Sign in</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		  </div>
+		  
+	</div>
 		</div>
 
 		<div id="container">
@@ -99,19 +186,19 @@
                                                     <option value="10">10</option>
                                                     <option value="11">11</option>
                                                     <option value="12">12</option>
-                                                </select>
-                                                <div class="control-group" id="id_displayLabel">
-                                                </div>
-                                                <div class="control-group">  
-                                                    <div class="controls">  
-                                                          <input type="button"  value="Submit" class="btn btn-success" onclick="showuser()" />  
-                                                    </div>  
-                                                </div>                                                
+                                                </select> 
+                                               
+                                                                                              
                                             </div><br>
+											
+											 <div id="id_displayLabel">
+                                                </div> <br>
+												<div id="display"></div><br>
+												<div id="display2"></div><br>
                                             
                                             
 
-                                            
+                                            <br>
                                             <h4> Search by First Name</h4>
 <!-- Div for Search By FirstName -->        <div class="control-group">  
                                                 <label class="control-label" for="book">First Name: </label>  
@@ -121,21 +208,8 @@
                                             </div>  <br>
 
 <!-- Div for Search by Group starts here -->
-                                           <!-- <h4>Search by Group</h4>
-                                            <div id="skillsSearch">
-                                                <label class="checkbox skillCheck">
-                                                <input type="checkbox" value="1" name="group[]">Manager</label>
-
-                                                <label class="checkbox skillCheck">
-                                                <input type="checkbox" value="2" name="group[]">HR</label>
-
-                                                <label class="checkbox skillCheck">
-                                                <input type="checkbox" value="3" name="group[]">Marketing</label>
-
-                                                <label class="checkbox skillCheck">
-                                                <input type="checkbox" value="4" name="group[]">Finance</label>
-                                                <div class="clear"></div>
-                                            </div> <br> -->
+                                           <!--<h4>Search by Group</h4> -->
+                                             <br>
                                             <div class="control-group">  
                                                 <div class="controls">  
                                                       <input type="button"  value="Submit" class="btn btn-success" onclick="showuser()" />  

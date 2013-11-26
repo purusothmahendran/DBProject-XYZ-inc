@@ -32,8 +32,11 @@
     $value=mysql_fetch_row($res);
     $emp=$value[0];
     $emp_id=$emp+1;
-
-     $sql="INSERT INTO $tbl_name VALUES('$emp_id','$first_name','$last_name','$rank','$title','$gender','$dob','$street','$apt','$city','$state','$zip','$grad','$sid')";
+	if($sid=='')
+			$sql="INSERT INTO $tbl_name(Employee_ID,First_Name,Last_Name,Rank,Title,Gender,DOB,Street_name,Apartment_number,City,State,ZipCode,Graduate_School) VALUES('$emp_id','$first_name','$last_name','$rank','$title','$gender','$dob','$street','$apt','$city','$state','$zip','$grad')";
+	else
+	 $sql="INSERT INTO $tbl_name VALUES('$emp_id','$first_name','$last_name','$rank','$title','$gender','$dob','$street','$apt','$city','$state','$zip','$grad','$sid')";
+	 
      $result=mysql_query($sql, $con);
 
      if($primary!=NULL)
