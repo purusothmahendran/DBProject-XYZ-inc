@@ -39,7 +39,7 @@
     while($row = mysql_fetch_array($result))
     {
         $Employee_ID = $row['Employee_ID'];
-        
+        echo "<tr>";
         echo "<td>" . $Employee_ID . "</td>";
         echo "<td>" . $row['First_Name'] . "</td>";
         echo "<td>" . $row['Last_Name'] . "</td>";

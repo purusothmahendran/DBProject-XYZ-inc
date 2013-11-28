@@ -7,7 +7,7 @@
 			<link rel="stylesheet" type="text/css" href="./home/main.css">
 					<script type="text/javascript">
 					/*JavaScript Function for query 1*/
-					function getcount()
+					function getcount(option)
 					{
 						var groups=document.getElementsByName("group");
 						var str;
@@ -33,7 +33,7 @@
 						  }
 						  
 						//var data = "first_name" + str;
-						xhr.open("GET","getcount.php?group="+str,true);
+						xhr.open("GET","getcount.php?options="+option+"&&group="+str,true);
 						//xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 						xhr.send();
 						xhr.onreadystatechange=display_data;
@@ -110,24 +110,131 @@
                                             var selectedItem = selectObject[selectObject.selectedIndex];
 											if(selectedItem.value==1)
 											{
-											
 											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display2').innerHTML="";
+
 											document.getElementById('display').innerHTML="<div id='skillsSearch'>"+
                                                 "<label class='checkbox skillCheck'>"+
-                                                "<input type='radio' value='manager' name='group' onclick='getcount()'>Manager</label>"+
+                                                "<input type='radio' value='manager' name='group' onclick='getcount(1)'>Manager</label>"+
 												 "<label class='checkbox skillCheck'>"+
-                                                "<input type='radio' value='hr' name='group' onclick='getcount()'>HR</label>"+
+                                                "<input type='radio' value='hr' name='group' onclick='getcount(1)'>HR</label>"+
 												 "<label class='checkbox skillCheck'>"+
-                                                "<input type='radio' value='financier' name='group' onclick='getcount()'>Finance</label>"+
+                                                "<input type='radio' value='financier' name='group' onclick='getcount(1)'>Finance</label>"+
 												 "<label class='checkbox skillCheck'>"+
-                                                "<input type='radio' value='marketing_group' name='group' onclick='getcount()'>Marketing</label>"+
+                                                "<input type='radio' value='marketing_group' name='group' onclick='getcount(1)'>Marketing</label>"+
 
                                                 
                                                 "<div class='clear'></div>"+
                                            " </div>";
+										   
 											}
+											if(selectedItem.value==2)
+											{
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display2').innerHTML="";
+
+											document.getElementById('display').innerHTML="<div id='skillsSearch'>"+
+                                                "<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='CEO' name='group' onclick='getcount(2)'>CEO</label>"+
+												 "<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='VP' name='group' onclick='getcount(2)'>Vice President</label>"+
+												 "<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='SENIOR MANAGER' name='group' onclick='getcount(2)'>Senior Manager</label>"+
+												 "<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='TEAM LEAD' name='group' onclick='getcount(2)'>Team Lead</label>"+
+												"<label class='checkbox skillCheck'>"+
+                                                "<input type='radio' value='TRAINEE' name='group' onclick='getcount(2)'>Trainee</label>"+
+
+                                                
+                                                "<div class='clear'></div>"+
+                                           " </div>";
+										   
+											}
+											
+											if(selectedItem.value==3)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display').innerHTML="";
+											getcount(3);
+											
+											}
+											
+											if(selectedItem.value==4)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display').innerHTML="";
+											getcount(4);
+											}
+											
+											if(selectedItem.value==5)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value]; 
+											document.getElementById('display').innerHTML="";
+											getcount(5);
+											}
+											
+											if(selectedItem.value==6)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display').innerHTML="";
+											document.getElementById('display2').innerHTML="";
+
+											}
+											
+											if(selectedItem.value==7)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value]; 
+											document.getElementById('display').innerHTML="";
+											getcount(7);
+											}
+											
+											if(selectedItem.value==8)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display').innerHTML="";
+											document.getElementById('display2').innerHTML="";
+											}
+											
+											if(selectedItem.value==9)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display').innerHTML="";
+											document.getElementById('display2').innerHTML="";
+											}
+											
+											if(selectedItem.value==10)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value];
+											document.getElementById('display').innerHTML="";
+											document.getElementById('display2').innerHTML="";
+											}
+											
+											if(selectedItem.value==11)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value]; 
+											document.getElementById('display').innerHTML="";
+											document.getElementById('display2').innerHTML="";
+											}
+											
+											if(selectedItem.value==12)
+											{
+											
+											document.getElementById('id_displayLabel').innerHTML = labelArray[selectedItem.value]; 
+											document.getElementById('display').innerHTML="";
+											document.getElementById('display2').innerHTML="";
+											
 
                                         }
+										}
 					</script>
 	</head>
 	
